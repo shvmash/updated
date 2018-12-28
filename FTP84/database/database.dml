@@ -1,0 +1,16 @@
+-- change this to your team id
+use ftp84;
+
+-- The CEO
+  INSERT INTO EMPLOYEE_DETAILS(EMP_ID,EMP_FULLNAME,EMP_EMAILID,EMP_MOBILENO,EMP_DATEJOINED,EMP_DEPT,EMP_LAVAILBAL,EMP_MGRID)
+         VALUES(1000,'Anshuman Mishra','mishraanshuman1705@gmail.com',9337575732,'2017-05-04','JAVA Developer',24,NULL)
+
+-- Two Managers
+ INSERT INTO EMPLOYEE_DETAILS(EMP_ID,EMP_FULLNAME,EMP_EMAILID,EMP_MOBILENO,EMP_DATEJOINED,EMP_DEPT,EMP_LAVAILBAL,EMP_MGRID)
+         VALUES(2000,'Rashmi Jadhav','jadhav.rashmi.15et5023@gmail.com',8451915505,'2017-09-29','SQL Developer',24,1000),
+        (3000,'Shiva Kumar','shivacsesrit@gmail.com',9492192921,'2018-02-11','Full Stack Developer',24,1000)
+
+-- Two Employees
+INSERT INTO EMPLOYEE_DETAILS(EMP_ID,EMP_FULLNAME,EMP_EMAILID,EMP_MOBILENO,EMP_DATEJOINED,EMP_DEPT,EMP_LAVAILBAL,EMP_MGRID)
+         VALUES(4000,'Alka Kumari','alka0657@gmail.com',8789461723,'2018-03-23','UI Developer',24,2000),
+        (5000,'Sravanthi Bommu','sravanthireddybommu@gmail.com',9515879217,'2018-04-15','Full Stack Developer',24,3000)

@@ -1,0 +1,90 @@
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<link href="D:/AngularJS/Table_Fixed_Header/css">
+<h1>PENDING LEAVES</h1>
+<div align='center'> 
+
+  <style>
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: solid black;
+}
+th, td {
+padding: 8px;
+text-align: left;
+}
+/* table {
+  width: 100%;    
+  background-color: #e6c5a1;
+} */
+
+    .button {
+      background-color: rgb(233, 157, 95);
+      border: 1px solid black;
+      color: rgb(10, 13, 14);
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
+  <input class="button" [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+  <!-- <font size="3"> -->
+    <table border="">
+        
+       <tr *ngFor= "let e of empData | async"> 
+            <div *ngIf="e.empMgrId==flagp">
+            <th width="130">Employee Id</th> <td width="130">{{e.empId}}</td>
+            <th width="130">Employee Name</th> <td width="130">{{e.empName}}</td>
+            <th width="130">Leave Balance</th> <td width="130">{{e.empLeaveAvail}}</td> 
+            <br/><br/>
+            <tr>
+                    <th width="120">Leave ID</th>
+                    <th width="120">Employee ID</th>
+                    <th width="120">Start Date</th>
+                    <th width="120">End Date</th>
+                    <th width="120">Number Of Days</th>
+                    <th width="120">Leave Reason</th>
+                    <th width="120">Applied On</th>
+                    <th width="120">Leave Type</th>
+                    <th width="120">Leave Status</th>
+                  </tr>
+            </div> 
+            
+            <table border="">
+                <tr *ngFor="let x of pend | async | grdFilter: {empId: searchText, leaveId:searchText 
+                  };" (click)="clickRow(e.empId,x.leaveId)">
+                    <!-- <tr *ngFor="let x of pend | async" > -->
+                      <div *ngIf="e.empId == x.empId" rowspan=200 px>
+                      <td width="120">{{x.leaveId}}</td>
+                      <td width="120">{{x.empId}}</td>
+                      <td width="120">{{x.startDate}}</td>
+                      <td width="120">{{x.endDate}}</td>
+                      <td width="120">{{x.leaveNoOfDays}}</td>
+                      <td width="120">{{x.leaveReason}}</td>
+                      <td width="120">{{x.leaveAppliedOn}}</td>
+                      <td width="120">{{x.leaveType}}</td>
+                      <td width="120">{{x.leaveStatus}}</td>
+                      </div>
+                    <!-- </tr> -->
+                    <!-- </tr> -->
+                  </table>
+                </tr>
+          </table>
+          <br/> 
+          <br/>
+        </div>
+        <div align="center" *ngIf="showButton">
+          <input type="button" (click)="doApproveDeny()" value="Approve/Deny">
+          </div>
+             <div align="center" *ngIf="!showButton">
+             <input type="button" value="Approve/Deny" disabled="disabled">
+             </div>
+             <div align="center" >
+                <button align="center" (click)="cancel()">Cancel</button>
+                </div>

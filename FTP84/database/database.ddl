@@ -1,0 +1,53 @@
+-- change this to your team id
+use ftp84;
+
+-- comment this line for the very first time
+
+DROP TABLE IF EXISTS EMPLOYEE_DETAILS;
+
+-- create the table EMPLOYEE_DETAILS
+
+CREATE TABLE EMPLOYEE_DETAILS
+		(
+            EMP_ID INT PRIMARY KEY,
+            EMP_FULLNAME VARCHAR(30) NOT NULL,
+            EMP_EMAILID VARCHAR(100) NOT NULL,
+            EMP_MOBILENO VARCHAR(30) NOT NULL,
+            EMP_DATEJOINED DATE NOT NULL,
+            EMP_DEPT VARCHAR(255) NOT NULL,
+            EMP_LAVAILBAL INT NOT NULL,
+            EMP_MGRID INT,
+            FOREIGN KEY(EMP_MGRID) REFERENCES EMPLOYEE_DETAILS(EMP_ID)
+            
+		);
+
+-- create table leave_details
+
+DROP TABLE IF EXISTS LEAVE_DETAILS;       
+
+CREATE TABLE LEAVE_DETAILS
+		(EMP_ID INT NOT NULL,
+			LEA_ID INT PRIMARY KEY AUTO_INCREMENT,
+            LEA_NOOFDAYS INT NOT NULL,
+            LEA_STARTDATE DATE NOT NULL,
+            LEA_ENDDATE DATE NOT NULL,
+            LEA_LEAVETYPE ENUM('EL','SL','ML') NOT NULL,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            LEA_STATUS ENUM('APPR','DEN','PEND') NOT NULL,
+=======
+>>>>>>> fcba7d7ca3357681eb1f6ff67c2a54d97a09b9e5
+>>>>>>> ba55724c23617a8ab58142ec2dd6498489ef01c5
+>>>>>>> aa56220146b6451076963723b42e7d9594c6a5a8
+            LEA_STATUS ENUM('APPROVED','DENIED','PENDING') NOT NULL,
+>>>>>>> 141623c19d9133fa9368b9aa80b6cb6ea5656413
+            LEA_REASON VARCHAR(255),
+            LEA_APPLIEDON DATE NOT NULL,
+            LEA_MGRCOMMENTS VARCHAR(255),
+            FOREIGN KEY(EMP_ID) REFERENCES EMPLOYEE_DETAILS(EMP_ID)
+        );

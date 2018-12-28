@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Style the header */
+header {
+  background-color: rgb(131, 125, 125);
+  padding: 30px;
+  text-align: center;
+  font-size: 40px;
+  color: black;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 50%;
+  height: 350px; /* only for demonstration, should be removed */
+  background: rgb(173, 111, 111);
+  padding: 2px 2px;
+  overflow-y:hidden;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width:50%;
+  background-color: rgb(201, 131, 131);
+  height: 350px; /* only for demonstration, should be removed */
+  /* overflow-y:hidden; */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: rgb(184, 222, 223);
+  padding: 10px;
+  text-align: center;
+ 
+  /* color: black; */
+}
+
+.button {
+  background-color: rgb(164, 226, 156);
+  border: 1px solid black;
+  color: rgb(10, 13, 14);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens
+@media (max-width: 800px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+} */
+</style>
+</head>
+<body>
+
+<header>
+  <h1>LEAVE MANAGEMENT SYSTEM</h1>
+</header>
+
+<section><nav>
+<app-employeeshow></app-employeeshow>
+</nav>
+    <article>
+    <app-employeeshowman></app-employeeshowman>
+</article>
+
+</section>
+
+<footer>
+  <app-leavehis></app-leavehis>
+  <input class = "button" type = "button" value = "New Application" (click)="applyLeave()" />
+ <app-pending></app-pending>
+</footer>
+
+</body>
+</html>
+

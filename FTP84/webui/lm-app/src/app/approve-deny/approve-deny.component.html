@@ -1,0 +1,18 @@
+<form>
+    Employ ID :  {{ (empData  | async)?.empId }} <br><br>
+    Employ Name :  {{ (empData  | async)?.empName }}<br><br>
+    Leave Balance : {{ (empData  | async)?.empLeaveAvail }}<br><br>
+  
+    StartDate : {{ (leaveData  | async)?.startDate }}<br><br>
+    EndDate : {{ (leaveData  | async)?.endDate }}<br><br>
+    LeaveType : {{ (leaveData  | async)?.leaveType }}<br><br>  
+    No Of Days : {{ (leaveData  | async)?.leaveNoOfDays }}<br><br>
+    Reason : {{ (leaveData  | async)?.leaveReason }}<br><br>
+    Comment:<textarea name="comment" [(ngModel)]="ld.mgrComments"></textarea><br><br>
+    <button (click)="approve()">Approve</button>&nbsp;&nbsp;
+    <button (click)="reject()">Deny</button>&nbsp;&nbsp;
+    <button (click)="cancel()">cancel</button>&nbsp;&nbsp;
+  </form>
+  
+  Result : {{msg}}
+  

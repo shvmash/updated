@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th, td {
+  padding: 15px;
+  text-align: left;
+}
+table {
+  width: 100%;    
+  background-color: #d4d4ab;
+}
+      </style>
+</head>
+<body>
+   <h1 align = 'center' style="background-color: #afabd4">Leave History</h1>
+      <table style="width:100%" >
+    <tr>
+      <th>empId</th>
+      <th>empName</th>
+      <th>empDept</th>
+      <th>empEmailId</th>
+      <th>empMobileNo</th>
+      <th>empDateJoined</th>
+      <th>empLeaveAvail</th>
+      <th>empMgrId</th>
+      <th>Navigate</th>
+    </tr>
+     
+
+    <tbody class="employee">
+    <tr *ngFor= "let his of employ | async">
+      <td>
+        {{his.leaveId}}
+      </td>
+      <td>
+        {{his.empId}}
+      </td>
+      <td>
+        {{his.startDate}}
+      </td>
+      <td>
+        {{his.endDate}}
+      </td>
+      <td>
+          {{his.leaveNoOfDays}}
+      </td>
+      <td>
+          {{his.leaveReason}}
+      </td>
+      <td>
+          {{his.leaveAppliedOn}}
+       </td>
+       <td>
+          {{his.leaveType}}
+       </td>
+       <td>
+        {{his.leaveStatus}}
+     </td>
+    </tr>
+  </tbody>
+ 
+</table>
+</body>
+</html>
+

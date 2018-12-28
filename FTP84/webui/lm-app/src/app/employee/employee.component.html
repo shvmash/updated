@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      .button {
+      background-color: rgb(233, 157, 95);
+      border: 1px solid black;
+      color: rgb(10, 13, 14);
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+              font-size: 15px;
+              color: solid black;
+            }
+            th, td {
+  padding: 8px;
+  text-align: left;
+}
+            </style>
+</head>
+
+<body >
+    <input class="button" [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+    <p></p>
+    <table style="background-color:rgb(159, 247, 216)">
+        <tr class= "active" class="warning" style="background-color:darksalmon">
+            <th >empId</th>
+            <th>empName</th>
+            <th>empDept</th>
+            <th>empEmailId</th>
+            <th>empMobileNo</th>
+            <th>empDateJoined</th>
+            <th>empLeaveAvail</th>
+            <th>empMgrId</th>
+            <th>Navigate</th>
+          </tr>
+  
+     <tbody class="employee">
+      <tr *ngFor="let employ of employee | async | grdFilter: {empId: searchText, empName:searchText,
+        empMobileNo: searchText
+        };">
+       
+        <td>{{employ.empId}}</td>
+        <td>{{employ.empName}}</td>
+        <td>{{employ.empDept}}</td>
+        <td>{{employ.empEmailId}}</td>
+        <td>{{employ.empMobileNo}}</td>
+        <td>{{employ.empDateJoined}}</td>
+        <td>{{employ.empLeaveAvail}}</td>
+        <td>{{employ.empMgrId}}</td>
+        <td><input class="button" type = "button" value = "Login" (click)="details(employ.empId,employ.empMgrId)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
